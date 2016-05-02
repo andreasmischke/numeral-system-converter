@@ -51,7 +51,7 @@
 		} else if(null !== str.match(/^0[1-9]\d*$/)) {
 			result.type = 'oct';
 			result.value = parseInt(str, 8);
-		} else if(null !== str.match(/^[1-9]\d*$/)) {
+		} else if(null !== str.match(/^[1-7]\d*$/)) {
 			result.type = 'dec';
 			result.value = parseInt(str, 10);
 		} else if(null !== str.match(/^0x[0-9a-f]+$/)) {
@@ -66,12 +66,33 @@
 		return result;
 	};
 
+	var group = function __group(str, partLength, separator) {
+
+		if(partLength < 1) {
+			console.warn("Illegal argument for `str` in function __group(str, partLength, separator)");
+			return str;
+		}
+
+		var parts = [];
+
+		for(var i = str.length - partLength; i > -partLength; i-=partLength ) {
+			if(i < 0) {
+				parts.push(str.substr(0, i + partLength));
+			} else {
+				parts.push(str.substr(i, partLength));
+			}
+		}
+
+
+		return parts.reverse().join(separator);
+	};
+
 	var updateFields = function __updateFields(value) {
 		if(value !== undefined) {
-			$out_dec.textContent = value.toString(10);
-			$out_hex.textContent = value.toString(16);
+			$out_dec.textContent = group(value.toString(10), 3, " ");
+			$out_hex.textContent = group(value.toString(16), 2, " ");
 			$out_oct.textContent = value.toString(8);
-			$out_bin.textContent = value.toString(2);
+			$out_bin.textContent = group(value.toString(2), 8, " ");
 		} else {
 			$out_dec.textContent = " ";
 			$out_hex.textContent = " ";

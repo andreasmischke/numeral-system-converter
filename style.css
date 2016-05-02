@@ -3,19 +3,21 @@ body {
 	font-size: 24px;
 	padding: 1em;
 	font-family: sans-serif;
+	background: #222;
+	color: #eee;
 }
 .block {
 	max-width: 30em;
 	min-width: 10em;
-	border: 1px solid #777;
+	border: 1px solid #333;
 	padding: .5em;
+	background: #111;
 	margin: .5em auto;
 }
 .inputblock {
 	max-width: 31em;
 	min-width: 11em;
 	margin: .5em auto;
-	border: 1px solid #99f;
 }
 #input {
 	display: block;
@@ -23,44 +25,69 @@ body {
 	box-sizing: border-box;
 	font: inherit;
 	padding: .5em;
-	border: none;
+	border: 1px solid #777;
+	background: #333;
+	color: #eee;
 	outline: none;
 }
-#out_type {
+.type_label {
 	display: inline-block;
-	padding: 0 .25em;
+	width: 6em;
+	text-align: right;
 }
 .subblock {
-	margin: .125em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: stretch;
+	margin: .125em 0;
 }
-.out_value {
-	display: inline-block;
+.out_label {
+	order: 1;
+	flex: 0 0 6em;
+	align-self: auto;
+	text-align: right;
+}
+.out_value, #out_type {
+	order: 2;
+	flex: 1 0 auto;
 	margin: 0 .25em;
 	padding: 0 .125em;
-	width: 50%;
-	text-align: right;
-	overflow: hidden;
+	overflow: -moz-hidden-unscrollable;
 }
-.nul { background-color: #ccc; }
-.hex { background-color: #9ff; }
-.dec { background-color: #9f9; }
-.oct { background-color: #f9f; }
-.bin { background-color: #ff9; }
-.err { background-color: #f99; }
+.nul { color: #606060; } /* #ccc */
+.hex { color: #7fc900; } /* #9ff */
+.dec { color: #08bfeb; } /* #9f9 */
+.oct { color: #904090; } /* #f9f */
+.bin { color: #fedc00; } /* #ff9 */
+.err { color: #ec3700; } /* #f99 */
 
 @media screen and (max-width:620px) {
+	body {
+		padding: 1em 0;
+	}
+	#input, .block {
+		border-right: none;
+		border-left: none;
+	}
+	.type_label {
+		display: initial;
+	}
 	.out_value {
 		display: block;
-		margin: .25em 0 0;
-		width: 100%
+		margin: 0 0 .25em;
+		width: 100%;
+		padding-left: 0;
 	}
 	.subblock {
 		padding-bottom: .5em;
+		flex-wrap: wrap;
 	}
-	.out_prefix {
-		display: none;
-	}
-	.out_suffix {
+	.out_label {
+		flex: 1 1 auto;
+		text-align: left;
 		font-size: 16px;
 	}
 }

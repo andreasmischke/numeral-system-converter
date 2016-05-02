@@ -2,29 +2,34 @@
 <html>
 <head>
 	<title>Number System conversions</title>
+	<!--[if lt IE 11]>
+		<link rel="stylesheet" type="text/css" href="style.ie-legacy.css">
+	<![ENDIF]-->
+	<!--[if gte IE 11]> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <![ENDIF]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 </head>
 <body>
 	<div class="inputblock">
-		<input type="text" id="input" />
+		<input type="text" id="input" placeholder="Enter a number (e.g. 0xca7, 42, 0755, 0b101, …)" />
 	</div>
 	<div class="block">
-		Your Input is <span id="out_type"></span>
+		<span class="type_label">Your Input is</span><span id="out_type" ></span>
 	</div>
 	<div class="block">
 		<div class="subblock">
-			<span class="out_prefix">This is</span><span id="out_dec" class="out_value dec"></span><span class="out_suffix">decimal</span>
+			<span class="out_label hex">hexadecimal</span><span id="out_hex" class="out_value hex"></span>
 		</div>
 		<div class="subblock">
-			<span class="out_prefix">This is</span><span id="out_hex" class="out_value hex"></span><span class="out_suffix">hexadecimal</span>
+			<span class="out_label dec">decimal</span><span id="out_dec" class="out_value dec"></span>
 		</div>
 		<div class="subblock">
-			<span class="out_prefix">This is</span><span id="out_oct" class="out_value oct"></span><span class="out_suffix">octal</span>
+			<span class="out_label oct">octal</span><span id="out_oct" class="out_value oct"></span>
 		</div>
 		<div class="subblock">
-			<span class="out_prefix">This is</span><span id="out_bin" class="out_value bin"></span><span class="out_suffix">binary</span>
+			<span class="out_label bin">binary</span><span id="out_bin" class="out_value bin"></span>
 		</div>
 	</div>
 	<script src="script.js"></script>
