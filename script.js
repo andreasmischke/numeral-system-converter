@@ -92,7 +92,7 @@
 			$out_dec.textContent = group(value.toString(10), 3, " ");
 			$out_hex.textContent = group(value.toString(16), 2, " ");
 			$out_oct.textContent = value.toString(8);
-			$out_bin.textContent = group(value.toString(2), 8, " ");
+			$out_bin.textContent = group(value.toString(2), 4, " ");
 		} else {
 			$out_dec.textContent = " ";
 			$out_hex.textContent = " ";
