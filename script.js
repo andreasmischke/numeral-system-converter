@@ -42,16 +42,13 @@
 		} else if(null !== str.match(/^0b[01]+$/i)) {
 			result.type = 'bin';
 			result.value = parseInt(str.substr(2), 2);
-		} else if(null !== str.match(/^b[01]+$/i)) {
-			result.type = 'bin';
-			result.value = parseInt(str.substr(1), 2);
 		} else if(null !== str.match(/^[01]+b$/i)) {
 			result.type = 'bin';
 			result.value = parseInt(str.substr(0, str.length-1), 2);
-		} else if(null !== str.match(/^0[1-9]\d*$/)) {
+		} else if(null !== str.match(/^0[1-7]\d*$/)) {
 			result.type = 'oct';
 			result.value = parseInt(str, 8);
-		} else if(null !== str.match(/^[1-7]\d*$/)) {
+		} else if(null !== str.match(/^[1-9]\d*$/)) {
 			result.type = 'dec';
 			result.value = parseInt(str, 10);
 		} else if(null !== str.match(/^0x[0-9a-f]+$/i)) {
